@@ -122,15 +122,17 @@ class App extends Component<any, any> {
                     <ParallaxLayer offset={0} speed={0} factor={3} />
                     <ParallaxLayer offset={0} speed={0.75}>
                         <div className="bgimg-1 w3-display-container w3-opacity-min" id="home">
-                            <div className="w3-display-middle" style={whiteNoWrap}>
-                        <span
-                            className="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">MY <span
-                            className="w3-hide-small">WEBSITE</span> LOGO</span>
-                            </div>
+                            <ParallaxLayer offset={0} speed={0.5}>
+                                <div className="w3-display-middle" style={whiteNoWrap}>
+                                <span
+                                    className="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">MY <span
+                                    className="w3-hide-small">WEBSITE</span> LOGO</span>
+                                </div>
+                            </ParallaxLayer>
                         </div>
                     </ParallaxLayer>
 
-                    <ParallaxLayer offset={0.9} speed={0.5}>
+                    <ParallaxLayer offset={0.99} speed={0.5}>
                         {/*Container (About Section) */}
                         <div className="w3-content w3-container w3-padding-64" id="about">
                             <h3 className="w3-center">ABOUT ME</h3>
