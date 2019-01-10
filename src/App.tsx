@@ -1,39 +1,24 @@
 import React, {Component, CSSProperties, MouseEvent} from 'react';
 import { Parallax, ParallaxLayer } from 'react-spring/addons';
+import NavBarContainer from './components/nav-bar/nav-bar-container';
 import './App.css';
 import './w3.css';
+import {WebsiteState} from "./types/types";
+import {NavBarConfig} from "./constants/constants";
 
-class App extends Component<any, any> {
+class App extends Component<WebsiteState, WebsiteState> {
     constructor(props: any) {
         super(props);
-        this.state = {
-            scroll: 0
-        };
-        this.setScroll = this.setScroll.bind(this);
     }
     componentDidMount() {
-        window.addEventListener('scroll', this.setScroll);
+
     }
 
     componentWillUnmount() {
-        window.removeEventListener('scroll', this.setScroll);
-    }
 
-    setScroll() {
-        this.setState({
-            scroll: document.documentElement.scrollTop
-        });
     }
 
     render() {
-        /*function getNavbarClass() {
-            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-                return "w3-bar" + " w3-card" + " w3-animate-top" + " w3-white";
-            } else {
-                return "";
-            }
-        }*/
-
         // Modal Image Gallery
         function expandImage(event: MouseEvent) {
             /*document.getElementById("img01").src = element.src;
@@ -44,17 +29,6 @@ class App extends Component<any, any> {
 
         function hideImage(event: MouseEvent) {
             //this.style.display='none'
-        }
-
-
-        // Used to toggle the menu on small screens when clicking on the menu button
-        function toggleFunction() {/*
-          let x = document.getElementById("navDemo");
-          if (x.className.indexOf("w3-show") == -1) {
-              x.className += " w3-show";
-          } else {
-              x.className = x.className.replace(" w3-show", "");
-          }*/
         }
 
         const fullWidth = {
@@ -88,33 +62,7 @@ class App extends Component<any, any> {
         return (
             <div className="main">
                 {/* Navbar (sit on top) */}
-                <div className="w3-top">
-                    <div className={"w3-bar" + (this.state.scroll > 100 ?
-                        " w3-card w3-animate-top w3-white" : "")} id="myNavbar">
-                        <a className="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right"
-                           href="javascript:void(0);" onClick={toggleFunction} title="Toggle Navigation Menu">
-                            <i className="fa fa-bars"></i>
-                        </a>
-                        <a href="#home" className="w3-bar-item w3-button">HOME</a>
-                        <a href="#about" className="w3-bar-item w3-button w3-hide-small"><i
-                            className="fa fa-user"></i> ABOUT</a>
-                        <a href="#portfolio" className="w3-bar-item w3-button w3-hide-small"><i
-                            className="fa fa-th"></i> PORTFOLIO</a>
-                        <a href="#contact" className="w3-bar-item w3-button w3-hide-small"><i
-                            className="fa fa-envelope"></i> CONTACT</a>
-                        <a href="#" className="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red">
-                            <i className="fa fa-search"></i>
-                        </a>
-                    </div>
-
-                    {/* Navbar on small screens */}
-                    <div id="navDemo" className="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
-                        <a href="#about" className="w3-bar-item w3-button" onClick={toggleFunction}>ABOUT</a>
-                        <a href="#portfolio" className="w3-bar-item w3-button" onClick={toggleFunction}>PORTFOLIO</a>
-                        <a href="#contact" className="w3-bar-item w3-button" onClick={toggleFunction}>CONTACT</a>
-                        <a href="#" className="w3-bar-item w3-button">SEARCH</a>
-                    </div>
-                </div>
+                <NavBarContainer config={NavBarConfig}/>
 
                 {/*
                 // @ts-ignore */}
